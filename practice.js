@@ -2,7 +2,7 @@ const http = require('http');
 const fs = require('fs');
 const url = require('url');
 const path = require('path');
-
+const path_url = process.env.PORT ||8080
 const basepath = `${__dirname}`;
 const index = fs.readFileSync(path.join(basepath, 'practice.html'), 'utf-8');
 
@@ -30,6 +30,7 @@ const server = http.createServer(function (request, response) {
     }
 });
 
-server.listen(8000, '127.0.0.1', function () {
+server.listen(path_url, function () {
     console.log('Server running at http://127.0.0.1:8000');
 });
+
